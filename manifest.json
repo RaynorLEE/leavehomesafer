@@ -1,10 +1,10 @@
 {
-    "name" : "LeaveHomeSafe",
-    "short_name" : "安心出行",
+    "name" : "CLeaveHomeSafe",
+    "short_name" : "CLHS",
     "display" : "standalone",
     "start_url" : ".",
     "orientation" : "portrait",
-    "scope" : "https://bartertone.github.io/",
+    "scope" : "https://yangwenbo99.github.io/",
     "icons" : [
         {
             "src" : "images/AppIcons/Assets.xcassets/AppIcon.appiconset/196.png",
