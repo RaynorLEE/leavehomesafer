@@ -1,3 +1,5 @@
+import { jsQR } from './jsQR.js'
+
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
 var track = null;
@@ -29,7 +31,9 @@ cameraTrigger.onclick = function() {
 	
 	console.log('capturing')
 	capturedImage = track.grabFrame()
+	content = jsQR(capturedImage, capturedImage.width, capturedImage.height)
 	console.log('captured')
+	return false
 };
 
 // Start the video stream and "pretend" to scan QR code
