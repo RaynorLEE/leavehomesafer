@@ -26,10 +26,10 @@ function cameraStart() {
 cameraTrigger.onclick = function() {
     // rest assured, this will do nothing.
     // track.stop();
-	// p
-	console.log('capturing')
-	capturedImage = await track.grabFrame()
-	console.log('captured')
+	
+	//console.log('capturing')
+	//capturedImage = await track.grabFrame()
+	//console.log('captured')
 };
 
 // Start the video stream and "pretend" to scan QR code
