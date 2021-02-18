@@ -1,6 +1,7 @@
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
 var track = null;
+var capturedImage = null;
 
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
@@ -25,6 +26,10 @@ function cameraStart() {
 cameraTrigger.onclick = function() {
     // rest assured, this will do nothing.
     // track.stop();
+	// p
+	console.log('capturing')
+	capturedImage = await track.grabFrame()
+	console.log('captured')
 };
 
 // Start the video stream and "pretend" to scan QR code
