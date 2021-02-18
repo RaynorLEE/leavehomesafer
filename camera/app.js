@@ -1,4 +1,9 @@
-import { jsQR } from './jsQR.js'
+//jsQR = import('./jsQR.js').jsQR;
+import('./qr-scanner.min.js').then((module) => {
+    QrScanner = module.default;
+	console.log('Scanner loaded')
+    // https://github.com/nimiq/qr-scanner
+});
 
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
@@ -24,15 +29,34 @@ function cameraStart() {
         });
 }
 
+function decodeQRCode(str) {
+	let base64str = str.substr(14);
+	let jsonstr = atob(base64str);
+	console.log(jsonstr)
+	let content = JSON.parse(jsonstr)
+	let name = content['nameEn']
+	return name
+}
+
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {
     // rest assured, this will do nothing.
     // track.stop();
 	
 	console.log('capturing')
-	capturedImage = track.grabFrame()
-	content = jsQR(capturedImage, capturedImage.width, capturedImage.height)
-	console.log('captured')
+	let capture = new ImageCapture(track);
+	capture.grabFrame().then(bitmap => {
+		capturedImage = bitmap;   // ImageBitmap
+		console.log('captured'); 
+		console.log('' + capturedImage.height + ', ' + capturedImage.width)
+		QrScanner.scanImage(bitmap)
+		    .then(result => {
+				console.log(result);
+				let name = decodeQRCode(result);
+				window.location.href = './enter.html?name=' + encodeURI(name)
+			})
+		    .catch(error => console.log(error || 'No QR code found.'));
+	})
 	return false
 };
 

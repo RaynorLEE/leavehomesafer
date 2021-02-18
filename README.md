@@ -8,3 +8,20 @@ To access the leavehomesafer progressive web app (PWA), follow the link below:
 * <https://github.com/academind/yt-example-pwa/tree/final>
 * <https://github.com/dcode-youtube/getting-started-pwa>
 * <https://github.com/abenjamin765/camera-app>
+
+## We use the following libraries
+
+- <https://github.com/nimiq/qr-scanner> 
+
+
+## How to use? 
+
+- Click on 'Enter' to enter
+- Scan the QR Code
+- Check the location. If that's not correct, you can edit it. 
+- If you want to keep the record, press the tick for saving.  Otherwise, just press 'Leave'. 
+
+
+## Disclaimer
+
+This project is only used for practicing JavaScript programming and to demonstrate the possibility of implementing a useless app using browser only. 

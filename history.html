@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#24B188">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Histories</title>
+    <link rel="stylesheet" href="src/enter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/AppIcons/Assets.xcassets/AppIcon.appiconset/196.png">
+    <link rel="icon" type="image/png" href="images/AppIcons/Assets.xcassets/AppIcon.appiconset/196.png">
+</head>
+
+<body>
+
+    <div class="container text-center">
+        <div>
+            <h2 class="locationtxt shadowtxt">Histories</h2>
+        </div>
+
+        <script>
+            function init() {
+                var current = localStorage.getItem('safer_histories');
+                if (!current) {
+                    return;
+                }
+                var obj = JSON.parse(current);
+                for (i in obj) {
+                    row = obj[i];
+                    let container = document.getElementById("big_continer");
+                    container.innerHTML += '<p class="titletxt">' + row['name'] + ': ' + row['time'];
+                }
+            }
+
+            window.onload = init;
+
+        </script>
+        <div id='big_continer'> </div>
+
+        <a class="cleartxt" href="#" onclick='clear_history()'>
+            <div id="clearbtn" class="shadow-sm button titletxt mt-5">
+                Clear
+            </div>
+        </a>
+
+        <script>
+            function clear_history() {
+                localStorage.removeItem('safer_histories');
+            }
+        </script>
+
+        <a class="leavetxt" href="./index.html">
+            <div id="leavebtn" class="shadow-sm button titletxt mt-5">
+                Leave
+            </div>
+        </a>
+
+    </div>
+
+    <script src="src/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
