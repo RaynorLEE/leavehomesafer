@@ -20,6 +20,7 @@ self.addEventListener("install", e=>{
                 "./camera/style.css",
                 "./camera.html",
                 "./enter.html",
+                "./history.html",
             ]);
         })
     );
